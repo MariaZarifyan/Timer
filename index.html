@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Timer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cairo&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="timer-container">
+            <h2>Enter your time:</h2>
+
+            <form class="input-times" action="">
+                <input type="number" placeholder="HH" class="input-time" id="input-hours" min="0">
+                <input type="number" placeholder="MM" class="input-time" id="input-minutes" min="0" max="59">
+                <input type="number" placeholder="SS" class="input-time" id="input-seconds" min="0" max="59">
+            </form> 
+
+            <div class="clock">
+                <div class="screen">
+                    <h1 class="current-time" id="hours"></h1>
+                    <h1 class="divider" id="divider-one">-</h1>
+                    <h1 class="current-time" id="minutes"></h1>
+                    <h1 class="divider" id="divider-two">-</h1>
+                    <h1 class="current-time" id="seconds" ></h1>
+                    <!-- <h1 class="last-time" id="last-digit"></h1> -->
+                </div>
+                <button id="start-btn">Start</button>
+                <button id="pause-btn">Pause</button>
+                <button id="reset-btn" type="reset">Reset</button>
+                <p id="remain"></p>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="app.js" async defer></script>
+    </body>
+</html>
