@@ -49,13 +49,6 @@ function timeToZero(){
     displayedSeconds.innerHTML = "00";
 }
 
-function playSound(){
-    var audio = new Audio("sounds/bell.mp3"); 
-    //audio.loop = true;
-    audio.play();
-    audio.reload();
-}
-
 let countDownInterval;
 
 function timer(hours, minutes, seconds){
@@ -78,8 +71,16 @@ function timer(hours, minutes, seconds){
             if (displayedHours.innerHTML == "00" & displayedMinutes.innerHTML== "00"){
                 remainingTime = 0;
 
-                    document.getElementById("remain").innerHTML = remainingTime;
-                    audio.play();
+                document.getElementById("remain").innerHTML = remainingTime;
+                audio.play();
+                pauseButton.disabled = true;
+                resetButton.disabled = false;
+                resetButton.innerHTML = "Stop alarm!";
+                // if (resetButtonClicked === true) {
+                //     resetButton.innerHTML = "Reset";
+                //     }
+               
+                    
             
                 
                 }
@@ -87,7 +88,7 @@ function timer(hours, minutes, seconds){
         
         
 
-        //document.getElementById("remain").innerHTML = remainingTime;
+        document.getElementById("remain").innerHTML = remainingTime;
         
 
     }, 10);
@@ -109,14 +110,25 @@ startButton.addEventListener("click", function(){
     
 })
 
+
+let resetButtonClicked = false;
 let pauseButtonClicked = false;
+
 resetButton.addEventListener("click", function(){
-    //playSound();
+    
     timeToZero();
     clearInterval(countDownInterval);
     startButton.disabled = false;
     pauseButtonClicked = false;
     pauseButton.innerHTML = "Pause";
+});
+
+resetButton.addEventListener("click", function(){
+    resetButtonClicked  = ! resetButtonClicked;
+    if (resetButton.innerHTML === "Stop alarm!") {
+        resetButton.innerHTML = "Reset";
+    }
+        
 });
 
 
