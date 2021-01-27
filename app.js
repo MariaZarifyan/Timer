@@ -36,18 +36,20 @@ function displayInput(){
     displayedHours.innerHTML = twoDigits(inputHours.value);
 }
 
-function muteInputFields(){
-    inputSeconds.disabled = true;
-    inputMinutes.disabled = true;
-    inputHours.disabled = true;
-}
-
 // default time 00:00:00
 function timeToZero(){
     displayedHours.innerHTML = "00";
     displayedMinutes.innerHTML = "00";
     displayedSeconds.innerHTML = "00";
 }
+
+
+// function colorRed() {
+// 	let elements = document.getElementsByClassName('current-time'); 
+// 	for(let i = 0; i < elements.length; i++){
+// 		elements[i].style.color = "red";
+// 	}
+// }
 
 let countDownInterval;
 
@@ -56,7 +58,7 @@ function timer(hours, minutes, seconds){
     timeFromCountDown = new Date(new Date().getTime() +
     hours * 60 * 60 * 1000 +
     minutes * 60 * 1000 +
-    seconds * 1000);
+    ((seconds* 1000)+1000));
 
     countDownInterval = setInterval(function(){
         currentTime = new Date().getTime();
@@ -73,24 +75,16 @@ function timer(hours, minutes, seconds){
 
                 document.getElementById("remain").innerHTML = remainingTime;
                 audio.play();
+                // colorRed();
                 pauseButton.disabled = true;
                 resetButton.disabled = false;
                 resetButton.innerHTML = "Stop alarm!";
-                // if (resetButtonClicked === true) {
-                //     resetButton.innerHTML = "Reset";
-                //     }
-               
-                    
-            
                 
                 }
         }
         
-        
-
         document.getElementById("remain").innerHTML = remainingTime;
         
-
     }, 10);
 
     
@@ -102,7 +96,7 @@ console.log(parseInt(document.getElementById("remain").innerHTML))
 
 
 startButton.addEventListener("click", function(){
-    // beginTheCountDown();
+
     timer(inputHours.value, inputMinutes.value, inputSeconds.value);
     resetButton.disabled = true;
     startButton.disabled = true;
@@ -136,11 +130,12 @@ resetButton.addEventListener("click", function(){
 pauseButton.addEventListener("click", function(){
 
     pauseButtonClicked = ! pauseButtonClicked;
+
     if (pauseButtonClicked === true){
         resetButton.disabled = false;
         pauseButton.innerHTML = "Resume";
         clearInterval(countDownInterval);
-        console.log(parseInt(displayedSeconds.innerHTML) + parseInt(displayedMinutes.innerHTML))
+
     } else if (pauseButtonClicked === false) {
         pauseButton.innerHTML = "Pause";
         resetButton.disabled = true;
@@ -150,9 +145,3 @@ pauseButton.addEventListener("click", function(){
     }
     
 });
-
-
-
-
-
-
