@@ -10,10 +10,10 @@ body {
 }
 
 .timer-container {
-    /* display: flex;
-    flex-direction: column; */
-    max-width: 700px;
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    width:600px;
     margin: auto;
     text-align: center;
 }
@@ -37,15 +37,15 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 0;
+    margin: 2px 15px;
     padding: 0;
     text-align: center;
 }
 
 .screen h1 {
     margin: 10px;
-    font-size: 6rem;
-    padding: 0px;
+    padding: 0;
+    font-size: 5rem;
 }
 
 #remain {
@@ -110,10 +110,18 @@ button {
 
 @media (max-width : 760px){ 
 
+    .timer-container h2 {
+        font-size: 2rem;
+    }
+
     .buttons-container {
         flex-direction: column;
         text-align: center;
         justify-content: center;
+    }
+
+    .screen h1 {
+        font-size: 4rem;
     }
 
     button {

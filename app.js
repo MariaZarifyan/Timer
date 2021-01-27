@@ -2,7 +2,7 @@ const inputHours = document.getElementById("input-hours");
 const inputMinutes = document.getElementById("input-minutes");
 const inputSeconds = document.getElementById("input-seconds");
 
-var audio = new Audio("sounds/bell.mp3"); 
+var audio = new Audio("sounds/bell.wav"); 
 let timeFromCountDown; //current time + inputHours + inputMinutes + inputSeconds
 
 inputHours.addEventListener("input", displayInput);
